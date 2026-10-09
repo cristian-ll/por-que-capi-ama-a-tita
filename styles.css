@@ -1,0 +1,621 @@
+/* reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:
+        radial-gradient(
+            ellipse at top left,
+            rgba(244, 143, 177, 0.38),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at bottom right,
+            rgba(74, 144, 226, 0.30),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #FFF0F5 0%,
+            #FFF9FC 50%,
+            #E3F2FD 100%
+        );
+    margin: 0;
+    padding-inline: clamp(1rem, 4vw, 4rem);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+/* Encabezado romántico */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 4rem 2rem 2rem;
+    text-align: center;
+}
+
+.header__eyebrow {
+    color: #D81B60;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.25rem;
+}
+
+.header__title {
+    max-width: 900px;
+    color: #4A90E2;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.15;
+    transition: color 0.3s ease;
+}
+
+.header__title:hover {
+    color: #F48FB1;
+}
+
+.header__divider {
+    width: 64px;
+    height: 3px;
+    background-color: #F48FB1;
+    border-radius: 999px;
+}
+
+.intro {
+    max-width: 40rem;
+    margin: 0 auto;
+    color: #263238;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.header__hint {
+    margin-top: 0.5rem;
+    color: #777777;
+    font-size: 0.85rem;
+    letter-spacing: 0.05rem;
+    animation: hint-pulse 2s ease-in-out infinite;
+}
+
+.header__hint span {
+    color: #F48FB1;
+}
+
+@keyframes hint-pulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(4px);
+    }
+}
+
+.photo-section {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem 4rem;
+}
+
+.polaroid {
+    width: min(320px, 100%);
+    padding: 0.8rem 0.8rem 1.5rem;
+    background-color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(38, 50, 56, 0.18);
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow: 0 14px 30px rgba(38, 50, 56, 0.22);
+}
+
+.polaroid__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.polaroid__caption {
+    padding-top: 1rem;
+    color: #D81B60;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.card {
+    width: 70%;
+    padding: 1rem 3rem;
+    box-shadow: 0 8px 20px rgba(38, 50, 56, 0.18);
+
+    opacity: 0;
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        box-shadow 0.3s ease;
+}
+
+.card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card.is-visible:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(38, 50, 56, 0.25);
+}
+
+.card__chapter {
+    margin-bottom: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18rem;
+    text-align: center;
+    opacity: 0.85;
+}
+
+/* Tarjetas azules */
+.card--blue .card__chapter {
+    color: #FFFFFF;
+}
+
+/* Tarjetas rosas */
+.card--pink .card__chapter {
+    color: #D81B60;
+}
+
+.card--blue {
+    align-self: flex-start;
+    background-color: #4A90E2;
+    border-radius: 0 1rem 1rem 1rem;
+}
+
+.card--pink {
+    align-self: flex-end;
+    background-color: #ffc7da;
+    border-radius: 1rem 0 1rem 1rem;
+}
+
+.card__title {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    font-weight: 600;
+}
+
+.card__title--blue {
+    color: #FFFFFF;
+}
+
+.card__title--pink {
+    color: #AD1457;
+}
+
+.card__text {
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    font-weight: 400;
+    line-height: 1.6;
+    padding: .3rem 0;
+}
+
+.card__text--blue {
+    color: #FFFFFF;
+}
+
+.card__text--pink {
+    color: #8E3157;
+}
+
+.card__text--important {
+    margin: 2rem 0;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid #FFFFFF;
+    border-radius: 0 12px 12px 0;
+    background: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+    font-size: 1.15rem;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 0.3px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.card__text--detail{
+    font-style: italic;
+    font-weight: 700;
+}
+
+.footer {
+    margin-top: 5rem;
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #263238;
+}
+
+.footer p {
+    font-size: 1.1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.footer span {
+    display: block;
+    margin-top: .5rem;
+    color: #D81B60;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.footer__signature {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+    color: #263E64;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.footer__signature strong {
+    color: #D81B60;
+    font-size: 1.5rem;
+    font-style: normal;
+}
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hearts span {
+    position: absolute;
+    top: -10%;
+    color: #F48FB1;
+    font-size: 3rem;
+    animation: fall linear infinite;
+}
+
+.hearts span:nth-child(1) {
+    left: 5%;
+    animation-duration: 8s;
+}
+
+.hearts span:nth-child(2) {
+    left: 15%;
+    animation-duration: 11s;
+    animation-delay: 2s;
+    color: #4A90E2;
+}
+
+.hearts span:nth-child(3) {
+    left: 25%;
+    animation-duration: 9s;
+    animation-delay: 4s;
+}
+
+.hearts span:nth-child(4) {
+    left: 35%;
+    animation-duration: 12s;
+    animation-delay: 1s;
+    color: #4A90E2;
+}
+
+.hearts span:nth-child(5) {
+    left: 45%;
+    animation-duration: 10s;
+    animation-delay: 3s;
+}
+
+.hearts span:nth-child(6) {
+    left: 55%;
+    animation-duration: 8s;
+    animation-delay: 5s;
+    color: #4A90E2;
+}
+
+.hearts span:nth-child(7) {
+    left: 65%;
+    animation-duration: 13s;
+    animation-delay: 2s;
+}
+
+.hearts span:nth-child(8) {
+    left: 75%;
+    animation-duration: 9s;
+    animation-delay: 6s;
+    color: #4A90E2;
+}
+
+.hearts span:nth-child(9) {
+    left: 85%;
+    animation-duration: 11s;
+    animation-delay: 1s;
+}
+
+.hearts span:nth-child(10) {
+    left: 95%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+    color: #4A90E2;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #FFF9FB;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #F48FB1;
+    border-radius: 10px;
+    border: 2px solid #FFF9FB;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #4A90E2;
+}
+
+/* Última tarjeta: el cierre de la historia */
+.card--final {
+    align-self: center;
+    width: min(85%, 750px);
+    margin-top: 2rem;
+    padding: 3rem 2rem;
+
+    border: 2px solid #F48FB1;
+    border-radius: 1.5rem;
+
+    background: linear-gradient(
+        135deg,
+        #FFD6E7 0%,
+        #FFF0F7 45%,
+        #D6E9FF 100%
+    );
+
+    box-shadow:
+        0 12px 35px rgba(74, 144, 226, 0.20),
+        0 0 25px rgba(244, 143, 177, 0.18);
+
+    text-align: center;
+}
+
+.card--final .card__chapter {
+    color: #AD1457;
+}
+
+.card--final .card__title {
+    color: #263E64;
+    margin-bottom: 1rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.card--final .card__text {
+    color: #263E64;
+    line-height: 1.9;
+}
+
+.final__heart {
+    margin: 1rem 0;
+    color: #D81B60;
+    font-size: 2.5rem;
+    animation: heart-beat 1.8s ease-in-out infinite;
+}
+
+.final__promise {
+    margin-top: 1.5rem;
+    color: #AD1457;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+@keyframes heart-beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+@media (max-width: 600px) {
+    .card--final {
+        width: 100%;
+        padding: 2rem 1.25rem;
+        margin-top: 1rem;
+    }
+
+    .card--final .card__title {
+        font-size: 1.8rem;
+    }
+
+    .final__promise {
+        font-size: 1.05rem;
+    }
+}
+
+/* ================================
+   RESPONSIVE: CELULARES
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .card.is-visible:hover {
+        transform: none;
+    }
+
+    .final__heart,
+    .header__hint,
+    .hearts span {
+        animation: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        gap: 1.25rem;
+        padding: 2.5rem 0 1.5rem;
+    }
+
+    .header__eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.2rem;
+    }
+
+    .header__title {
+        font-size: clamp(2rem, 8.5vw, 2.5rem);
+        line-height: 1.2;
+        overflow-wrap: break-word;
+    }
+
+    .intro {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 0.25rem;
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
+    .header__hint {
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+     /* Burbujas */
+    .card {
+        width: 100%;
+        padding: 1.25rem;
+        border-radius: 1rem;
+        box-shadow: 0 5px 14px rgba(38, 50, 56, 0.18);
+    }
+
+    .card.is-visible:hover {
+        transform: none;
+        box-shadow: 0 5px 14px rgba(38, 50, 56, 0.18);
+    }
+
+    .card__chapter {
+        font-size: 0.65rem;
+        letter-spacing: 0.12rem;
+        line-height: 1.6;
+    }
+
+    /* Preguntas */
+    .card__title {
+        padding: 0.5rem 0;
+        font-size: 1.5rem;
+        line-height: 1.35;
+        overflow-wrap: break-word;
+    }
+
+    /* Respuestas */
+    .card__text {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        overflow-wrap: break-word;
+    }
+
+    /* Pie de página */
+    .footer {
+        margin-top: 2.5rem;
+        padding: 2rem 0;
+    }
+
+    .footer p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .footer span {
+        font-size: 1.15rem;
+    }
+
+    /* Corazones del fondo */
+    .hearts span {
+        font-size: 1.7rem;
+    }
+}
+
+/* 
+🔵 Azul principal	Azul moderno	#4A90E2
+🌸 Rosa principal	Rosa suave	#F48FB1
+🌷 Rosa claro	Fondo de burbujas	#FCE4EC
+🤍 Fondo	Blanco rosado	#FFF9FB
+🖤 Texto	Azul oscuro	#263238
+💙 Azul claro	Detalles	#E3F2FD
+⚪ Blanco	Contraste	#FFFFFF
+
+Cómo lo usaría
+
+Fondo general: #FFF9FB
+→ Casi blanco, con un toque rosado para que no sea tan frío.
+
+Preguntas/burbujas: #FCE4EC
+→ Rosa muy suave, ideal para que las preguntas destaquen sin molestar.
+
+Botones o elementos importantes: #4A90E2
+→ El azul le da contraste y hace que la interfaz no quede completamente rosa.
+
+Texto: #263238
+→ Mucho mejor que negro puro; queda más elegante y fácil de leer.
+
+Burbujas alternativas: #E3F2FD
+→ Podrías alternar algunas preguntas azules muy claras con las rosas.
+*/
