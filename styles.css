@@ -486,50 +486,6 @@ body {
     }
 }
 
-/* ❤️ Efecto elástico de la sorpresa secreta */
-html,
-body {
-    overscroll-behavior-y: contain;
-}
-
-body {
-    --pull-stretch: 0px;
-}
-
-/* La página acompaña el movimiento del dedo */
-body.is-pulling {
-    transform: translateY(var(--pull-stretch));
-    transition: none;
-    will-change: transform;
-}
-
-/* Al soltar, la página vuelve suavemente a su lugar */
-body:not(.is-pulling) {
-    transform: translateY(0);
-    transition: transform 350ms cubic-bezier(0.2, 1.4, 0.4, 1);
-}
-
-/* 💕 Corazones de la explosión */
-.surprise-heart {
-    position: fixed;
-    left: var(--start-x);
-    top: var(--start-y);
-    z-index: 99999;
-    pointer-events: none;
-    user-select: none;
-
-    color: var(--heart-color);
-    font-size: var(--size);
-    line-height: 1;
-
-    text-shadow: 0 2px 10px rgba(244, 143, 177, 0.4);
-
-    animation: surprise-heart-burst var(--duration)
-        cubic-bezier(0.15, 0.75, 0.25, 1) forwards;
-
-    will-change: transform, opacity;
-}
-
 @keyframes surprise-heart-burst {
     0% {
         opacity: 0;
